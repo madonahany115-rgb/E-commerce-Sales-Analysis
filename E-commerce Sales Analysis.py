@@ -473,22 +473,21 @@ print(status_sales)
 
 
 
-plt.figure(figsize=(5, 5))
 
-plt.bar(
-    status_counts.index,
-    status_counts.values,
-    width=0.3
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(7, 7))
+
+plt.pie(
+    status_percentage,
+    labels=status_percentage.index,
+    autopct="%1.1f%%",
+    startangle=90
 )
 
-plt.title("Order Status Distribution", fontsize=14, fontweight="bold")
-plt.xlabel("Order Status")
-plt.ylabel("Number of Orders")
-
-plt.grid(axis="y", linestyle="--", alpha=0.5)
-
+plt.title("Order Status Distribution")
 plt.tight_layout()
-# Save the visualization
+
 plt.savefig(
     r"C:\Users\ZBook G3\Downloads\E-commerce Sales Analysis\visualizations\order_status_distribution.png",
     bbox_inches="tight"
